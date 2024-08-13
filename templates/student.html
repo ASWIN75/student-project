@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Student Registration</title>
+        {% load static %}
+    </head>
+    <body style="background-image: url('{% static "images/bk.jpg" %}'); background-repeat:no-repeat;background-size:cover;">
+        <center>
+
+        <br><br><br><br>
+        <h1><strong><u>STUDENT REGISTRATION</u></strong></h1>
+
+        <table>
+
+            <form action="{% url 'add_student' %}" method="post">
+                {% csrf_token %}
+               
+                <tr>
+                    <td><label style="font-size:23px;">Student Name</label></td>
+                    <td><input type="text" name="student_name"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Address</label></td>
+                    <td><input type="text" name="student_address"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Age</label></td>
+                    <td><input type="number" name="student_age"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Email Address</label></td>
+                    <td><input type="email" name="student_email"></td>
+                </tr>
+
+                <tr>
+                    <td><label style="font-size:23px;">Joining Date</label></td>
+                    <td><input type="date" name="joining_date"></td>
+                </tr>
+
+                <tr>
+                    <td><label style="font-size:23px;">Qualification</label></td>
+                    <td>
+                <select id="qualification" name="qualification">
+                <option value="select">Select your Qualification</option>
+                <option value="sslc">SSLC</option>
+                <option value="plustwo">Plus two</option>
+                <option value="degree">Degree</option>
+                <option value="pg">PG</option>
+                    
+     </select>
+     </td>
+        </tr>
+
+        <tr>
+            <td><label style="font-size:23px;">Gender</label></td>
+            <td>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </td>
+        </tr>
+
+
+                
+                <tr>
+                    <td><label style="font-size:23px;">Mobile Number</label></td>
+                    <td><input type="text" name="mobile_num"></td>
+                </tr>
+                <tr><td></td>
+                    <td>
+                        <button type="submit">Submit</buton>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </center>
+    </body>
+    </html>
+
+
+
+
+
+
+
+    </center>

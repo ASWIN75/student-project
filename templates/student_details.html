@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    {% load static %}
+    <style>
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .card h2 {
+            margin: 0;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static "images/bk.jpg" %}'); background-repeat:no-repeat;background-size:cover;">
+    <center>
+        <br><br><br><br>
+        <div class="card">
+            <h2>{{ student.student_name }}</h2>
+            <p><strong>Address:</strong> {{ student.address }}</p>
+            <p><strong>Age:</strong> {{ student.age }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Joining Date:</strong> {{ student.joining_date }}</p>
+            <p><strong>Qualification:</strong> {{ student.qualification }}</p>
+            <p><strong>Gender:</strong> {{ student.gender }}</p>
+            <p><strong>Mobile Number:</strong> {{ student.mobile_number }}</p>
+            <a href="{% url 'show_student_details' %}">Go Back</a>
+        </div>
+    </center>
+</body>
+</html>

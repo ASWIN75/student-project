@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit</title>
+    {% load static %}
+</head>
+<body style="background-image: url('{% static "images/fn.jpg" %}'); background-repeat:no-repeat;background-size:cover;">
+    <center>
+        <br><br><br><br>
+        <h1><strong><u>Edit Student Details</u></strong></h1>
+        <table>
+            <form method="post" action="{% url 'edit_student_details' student.id %}">
+                {% csrf_token %}
+                <tr>
+                    <td><label style="font-size:23px;">Student Name</label></td>
+                    <td><input type="text" name="student_name" value="{{ student.student_name }}"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Address</label></td>
+                    <td><input type="text" name="student_address" value="{{ student.address }}"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Age</label></td>
+                    <td><input type="number" name="student_age" value="{{ student.age }}"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Email Address</label></td>
+                    <td><input type="email" name="student_email" value="{{ student.email }}"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Joining Date</label></td>
+                    <td><input type="date" name="joining_date" value="{{ student.joining_date | date:'Y-m-d'}}"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Qualification</label></td>
+                    <td>
+                        <select id="qualification" name="qualification">
+                            <option value="sslc" {% if student.qualification == "sslc" %}selected{% endif %}>SSLC</option>
+                            <option value="plustwo" {% if student.qualification == "plustwo" %}selected{% endif %}>Plus two</option>
+                            <option value="degree" {% if student.qualification == "degree" %}selected{% endif %}>Degree</option>
+                            <option value="pg" {% if student.qualification == "pg" %}selected{% endif %}>PG</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Gender</label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="male" {% if student.gender == "male" %}checked{% endif %}>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female" {% if student.gender == "female" %}checked{% endif %}>
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:23px;">Mobile Number</label></td>
+                    <td><input type="text" name="mobile_num" value="{{ student.mobile_number }}"></td>
+                </tr>
+                <tr><td></td>
+                    <td>
+                        <button type="submit">Update</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </center>
+</body>
+</html>

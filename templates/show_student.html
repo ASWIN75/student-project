@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Student</title>
+    {% load static %}
+</head>
+<body style="background-image: url('{% static "images/ss.jpg" %}'); background-repeat:no-repeat;background-size:cover;">
+    <center>
+        <br><br><br><br>
+        <h1><strong><u>STUDENT DETAILS</u></strong></h1>
+        <table border="2px">
+            <thead>
+                <tr>
+                    <th>STUDENT NAME</th>
+                    <th>EMAIL ADDRESS</th>
+                    <th>CONTACT NUMBER</th>
+                    <th>ACTION</th>
+                </tr> 
+            </thead>
+            <tbody>
+                {% for s in std %}
+                <tr>
+                    <td><a href="{% url 'student_details' s.id %}">{{ s.student_name }}</a></td>
+                    <td>{{ s.email }}</td>
+                    <td>{{ s.mobile_number }}</td>
+                    <td><a href="{% url 'editpage' s.id %}">Edit</a><br>
+                        <a href="{% url 'deletepage' s.id %}">Delete</a><br>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
